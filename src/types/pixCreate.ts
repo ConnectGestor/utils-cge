@@ -1,8 +1,11 @@
+import { PixKeyType } from './pixKeyType';
+
 export type CreateStaticPixParams = {
   merchantName: string;
   merchantCity: string;
-  infoAdicional?: string;
   pixKey: string;
+  pixKeyType: PixKeyType | string;
+  infoAdicional?: string;
   fss?: string;
   txid?: string;
   transactionAmount: number;

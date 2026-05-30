@@ -7,7 +7,7 @@ import {
 } from './types/pixElements';
 import { PixError } from './types/pixError';
 import { generateErrorObject } from './utils/generateErrorObject';
-import { validatePixKey } from './utils/validatePixKey';
+import { preparePixKey } from './utils/validatePixKey';
 
 const defaultPixFields = {
   merchantCategoryCode: '0000',
@@ -36,15 +36,18 @@ export function createStaticPix(
     return generateErrorObject('merchantCity character limit exceeded (> 15)');
   }
 
-  const pixKeyError = validatePixKey(params.pixKey);
-  if (pixKeyError.ok === false) {
-    return generateErrorObject(`pixKey: ${pixKeyError.message}`);
+  const prepared = preparePixKey(params.pixKey, params.pixKeyType);
+  if (prepared.ok === false) {
+    return generateErrorObject(`pixKey: ${prepared.message}`);
   }
+
+  const { pixKeyType: _pixKeyType, ...pixParams } = params;
 
   const elements = {
     type: PixElementType.STATIC,
     ...defaultPixFields,
-    ...params,
+    ...pixParams,
+    pixKey: prepared.pixKey,
   } as StaticPixEmvElements;
 
   return generatePixObject(elements);
