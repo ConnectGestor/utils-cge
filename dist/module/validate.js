@@ -1,0 +1,4 @@
+export function hasError(pixElement) {
+    return !!pixElement.error;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidmFsaWRhdGUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvdmFsaWRhdGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBR0EsTUFBTSxVQUFVLFFBQVEsQ0FDdEIsVUFBc0M7SUFFdEMsT0FBTyxDQUFDLENBQUUsVUFBdUIsQ0FBQyxLQUFLLENBQUM7QUFDMUMsQ0FBQyJ9
