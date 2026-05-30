@@ -4,7 +4,8 @@ export type PixKeyValidationResult =
   | { readonly ok: true }
   | { readonly ok: false; readonly message: string };
 
-const UNSAFE_KEY_PATTERN = /[\x00-\x1f\x7f\s@\\%]/;
+// @ is allowed (e-mail Pix keys); block control chars, whitespace, \ and %
+const UNSAFE_KEY_PATTERN = /[\x00-\x1f\x7f\s\\%]/;
 
 export function validatePixKey(pixKey: string): PixKeyValidationResult {
   if (!pixKey || typeof pixKey !== 'string') {
