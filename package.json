@@ -1,6 +1,6 @@
 {
   "name": "@connectgestor/utils-cge",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Geração de Pix estático (BR Code / copia e cola) para ConnectGestor",
   "keywords": [
     "pix",
